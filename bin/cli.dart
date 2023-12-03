@@ -1,5 +1,5 @@
-import 'package:cli/cli.dart';
+import 'package:cli/day_2.dart';
 
 void main(List<String> arguments) {
-  day_1_2();
+  day_2_1();
 }
