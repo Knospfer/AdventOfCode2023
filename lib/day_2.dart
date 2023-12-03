@@ -39,3 +39,32 @@ void day_2_1() async {
 
   print(idSum);
 }
+
+///devo esrtarre i MASSIMI di ogni colore per ogni riga e moltiplkicarli e poi sommare i risultati
+
+void day_2_2() async {
+  final content = await File('assets/day_2_2.txt').readAsString();
+
+  int total = 0;
+
+  for (final line in content.split('\n')) {
+    final maxReds = RegExp('\\d+ red')
+        .allMatches(line)
+        .map((e) => int.parse(e[0]!.split(' ')[0]))
+        .max;
+
+    final maxBlues = RegExp('\\d+ blue')
+        .allMatches(line)
+        .map((e) => int.parse(e[0]!.split(' ')[0]))
+        .max;
+
+    final maxGreens = RegExp('\\d+ green')
+        .allMatches(line)
+        .map((e) => int.parse(e[0]!.split(' ')[0]))
+        .max;
+
+    total += (maxReds * maxBlues * maxGreens);
+  }
+
+  print(total);
+}
